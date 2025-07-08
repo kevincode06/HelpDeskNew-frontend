@@ -11,3 +11,353 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* client/src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --dark-color: #343a40;
+    --light-color: #f8f9fa;
+    --white-color: #fff;
+    --border-radius: 5px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    color: var(--white-color);
+}
+
+.header ul {
+    display: flex;
+    gap: 1rem;
+}
+
+.header ul li a {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.header ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.btn-success { background-color: var(--success-color); }
+.btn-success:hover { background-color: #218838; }
+.btn-danger { background-color: var(--danger-color); }
+.btn-danger:hover { background-color: #c82333; }
+.btn-warning { background-color: var(--warning-color); color: var(--dark-color); }
+.btn-warning:hover { background-color: #e0a800; }
+.btn-info { background-color: var(--info-color); }
+.btn-info:hover { background-color: #117a8b; }
+
+
+.heading {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.heading h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.heading p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Ticket List/Dashboard Styling */
+.tickets {
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.ticket-headings {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 2fr 0.8fr 1.5fr;
+    gap: 1rem;
+    padding: 1rem;
+    font-weight: bold;
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin-bottom: 1rem;
+}
+
+.ticket {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 2fr 0.8fr 1.5fr;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+    background-color: var(--light-color);
+    align-items: center;
+}
+
+.ticket:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.status {
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+}
+
+.status-open {
+    background-color: var(--info-color);
+    color: var(--white-color);
+}
+
+.status-pending {
+    background-color: var(--warning-color);
+    color: var(--dark-color);
+}
+
+.status-closed {
+    background-color: var(--danger-color);
+    color: var(--white-color);
+}
+
+/* Single Ticket View */
+.ticket-page {
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.ticket-page h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.ticket-page .ticket-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.ticket-page .ticket-info div {
+    flex: 1 1 300px; /* Allows items to wrap */
+}
+
+.ticket-page .ticket-info span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--dark-color);
+}
+
+.ticket-replies {
+    margin-top: 2rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+.reply {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.reply.user-reply {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    margin-left: 20%; /* Example for alignment */
+}
+
+.reply.admin-reply {
+    background-color: var(--success-color);
+    color: var(--white-color);
+    margin-right: 20%; /* Example for alignment */
+}
+
+.reply.ai-reply {
+    background-color: var(--info-color);
+    color: var(--white-color);
+    margin-right: 15%; /* Slightly different for AI */
+}
+
+.reply .reply-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.reply .reply-sender {
+    text-transform: capitalize;
+}
+
+/* Spinner */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .ticket-headings, .ticket {
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+    }
+    .ticket-headings div:nth-child(2),
+    .ticket div:nth-child(2), /* Ticket ID */
+    .ticket-headings div:nth-child(3),
+    .ticket div:nth-child(3), /* User */
+    .ticket-headings div:nth-child(4),
+    .ticket div:nth-child(4) { /* Title */
+        display: none; /* Hide some columns on smaller screens */
+    }
+
+    .ticket-headings div:nth-child(1), .ticket div:nth-child(1) { order: 1; } /* Date */
+    .ticket-headings div:nth-child(5), .ticket div:nth-child(5) { order: 2; } /* Status */
+    .ticket-headings div:nth-child(6), .ticket div:nth-child(6) { order: 3; } /* Actions */
+
+    .header ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .header .container {
+        flex-direction: column;
+    }
+}
