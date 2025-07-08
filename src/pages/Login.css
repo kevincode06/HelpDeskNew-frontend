@@ -1,0 +1,85 @@
+.heading {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+.heading h1 {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+    color: var(--dark-color); /* Using a variable from index.css */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-weight: 700;
+}
+
+.heading p {
+    font-size: 1.2rem;
+    color: var(--secondary-color); /* Using a variable from index.css */
+}
+
+/* General Form Container */
+.form {
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: var(--white-color); /* Using a variable from index.css */
+    padding: 2.5rem;
+    border-radius: var(--border-radius); /* Using a variable from index.css */
+    box-shadow: var(--box-shadow); /* Using a variable from index.css */
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: var(--dark-color); /* Using a variable from index.css */
+}
+
+/* Form Control (Input/Textarea) Styling */
+.form-control {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius); /* Using a variable from index.css */
+    font-size: 1.05rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Using a variable from index.css */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Button Base Styles (for form submission buttons) */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color); /* Using a variable from index.css */
+    color: var(--white-color); /* Using a variable from index.css */
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius); /* Using a variable from index.css */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 1rem;
+}

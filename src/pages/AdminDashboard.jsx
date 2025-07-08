@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getAllTicketsForAdmin, updateTicketStatusByAdmin, reset } from '../redux/adminSlice';
-import Spinner from '../components/Spinner';
+import Loader from '../components/Loader';
 
 function AdminDashboard() {
     const { adminTickets, isLoading, isError, message } = useSelector(
@@ -39,7 +39,7 @@ function AdminDashboard() {
     };
 
     if (isLoading) {
-        return <Spinner />;
+        return <Loader />;
     }
 
     const filteredTickets = adminTickets.filter(ticket => {

@@ -1,0 +1,38 @@
+.home-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between buttons */
+    max-width: 400px; /* Limit width for better appearance */
+    margin: 2rem auto; /* Center the links */
+    padding: 1.5rem;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.btn-hero {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem; /* Space between icon and text */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-hero:hover {
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.btn-admin {
+    background-color: var(--dark-color);
+}
+
+.btn-admin:hover {
+    background-color: #212529; /* Darker shade on hover */
+}

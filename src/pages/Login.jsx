@@ -1,62 +1,61 @@
 import { useState, useEffect } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FaUser } from 'react-icons/fa';
-import {register, reset } from '../redux/authSlice';
-import Loader from '../components/Loader';
+import { FaSignInAlt } from 'react-icons/fa'; //
+import { login, reset } from '../redux/authSlice'; 
+import Loader from '../components/Loader.jsx'; 
 
-function Register() {
+function Login() {
+    // State to manage form input fields
     const [formData, setFormData] = useState({
-        name: '',
         email: '',
         password: '',
-        password2: '',
     });
 
-    const { name, email, password, password2 } = formData;
+    const { email, password } = formData;
 
+    // Hooks for navigation and Redux dispatch
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    // Select relevant state from Redux store
     const { user, isLoading, isError, isSuccess, message } = useSelector(
         (state) => state.auth
     );
-
     useEffect(() => {
         if (isError) {
-            toast.error(message);
+            toast.error(message); 
         }
 
         if (isSuccess || user) {
-            navigate('/');
+            navigate('/'); 
         }
 
-        dispatch(reset());
-    }, [user, isError, isSuccess, message, navigate, dispatch]);
+        dispatch(reset()); 
+    }, [user, isError, isSuccess, message, navigate, dispatch]); 
 
+    // Handler for input field changes
     const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value, 
         }));
     };
 
+    // Handler for form submission
     const onSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
 
-        if (password !== password2) {
-            toast.error('Passwords do not match');
-        } else {
-            const userData = {
-                name,
-                email,
-                password,
-            };
-            dispatch(register(userData));
-        }
+        const userData = {
+            email,
+            password,
+        };
+
+        dispatch(login(userData)); // Dispatch the login async thunk with user data
     };
 
+    // Show spinner while loading
     if (isLoading) {
         return <Loader />;
     }
@@ -65,24 +64,13 @@ function Register() {
         <div className='container'>
             <section className='heading'>
                 <h1>
-                    <FaUser /> Register
+                    <FaSignInAlt /> Login
                 </h1>
-                <p>Please create an account</p>
+                <p>Please log in to get support</p>
             </section>
 
             <section className='form'>
                 <form onSubmit={onSubmit}>
-                    <div className='form-group'>
-                        <input
-                            type='text'
-                            className='form-control'
-                            id='name'
-                            name='name'
-                            value={name}
-                            placeholder='Enter your name'
-                            onChange={onChange}
-                        />
-                    </div>
                     <div className='form-group'>
                         <input
                             type='email'
@@ -92,6 +80,7 @@ function Register() {
                             value={email}
                             placeholder='Enter your email'
                             onChange={onChange}
+                            required 
                         />
                     </div>
                     <div className='form-group'>
@@ -103,17 +92,7 @@ function Register() {
                             value={password}
                             placeholder='Enter password'
                             onChange={onChange}
-                        />
-                    </div>
-                    <div className='form-group'>
-                        <input
-                            type='password'
-                            className='form-control'
-                            id='password2'
-                            name='password2'
-                            value={password2}
-                            placeholder='Confirm password'
-                            onChange={onChange}
+                            required // HTML5 validation
                         />
                     </div>
                     <div className='form-group'>
@@ -127,4 +106,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default Login;

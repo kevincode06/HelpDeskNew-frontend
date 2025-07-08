@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { createTicket, reset } from '../redux/ticketSlice';
-import Spinner from '../components/Spinner';
+import Loader from '../components/Loader';
 
 function NewTicket() {
     const { user } = useSelector((state) => state.auth);
@@ -37,7 +37,7 @@ function NewTicket() {
     };
 
     if (isLoading) {
-        return <Spinner />;
+        return <Loader />;
     }
 
     return (
